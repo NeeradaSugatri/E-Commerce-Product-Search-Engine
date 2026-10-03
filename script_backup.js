@@ -154,121 +154,45 @@ const products = [
         rating: 4.7,
         popularity: 88
     },
-  
+    {
+        id: 305,
+        name: "Apple Watch Series 9",
+        category: "Smartwatches",
+        price: 41999,
+        rating: 4.7,
+        popularity: 90
+    }
 ];
 // ========================================
 // PRODUCT IMAGES
 // ========================================
 const productImages = {
-
-    // =========================
-    // iPHONES
-    // =========================
     101: "images/iphone-15.jpg",
     102: "images/iphone-15-plus.jpg",
     103: "images/iphone-15-pro.jpg",
     104: "images/iphone-15-pro-max.jpg",
 
-    111: "images/iphone-14.jpg",
-    112: "images/iphone-14-plus.jpg",
-    113: "images/iphone-14-pro.jpg",
-
-    114: "images/iphone-13.jpg",
-    115: "images/iphone-13-pro.jpg",
-    116: "images/iphone-13-pro-max.jpg",
-
-    117: "images/iphone-16.jpg",
-    118: "images/iphone-16-plus.jpg",
-    119: "images/iphone-16-pro.jpg",
-    120: "images/iphone-16-pro-max.jpg",
-
-
-    // =========================
-    // SAMSUNG
-    // =========================
     105: "images/samsung-s24.jpg",
     106: "images/samsung-s24-ultra.jpg",
 
-    121: "images/samsung-s23.jpg",
-    122: "images/samsung-s23-ultra.jpg",
-    123: "images/samsung-s24-plus.jpg",
-    124: "images/samsung-s25.jpg",
-    125: "images/samsung-s25-ultra.jpg",
-
-
-    // =========================
-    // ONEPLUS
-    // =========================
     107: "images/oneplus-12.jpg",
     108: "images/oneplus-nord-ce4.jpg",
 
-    126: "images/oneplus-11.jpg",
-    127: "images/oneplus-12r.jpg",
-    128: "images/oneplus-nord-4.jpg",
-    129: "images/oneplus-13.jpg",
-
-
-    // =========================
-    // GOOGLE PIXEL
-    // =========================
     109: "images/pixel-8.jpg",
     110: "images/pixel-8-pro.jpg",
 
-
-    // =========================
-    // MACBOOKS
-    // =========================
     201: "images/macbook-air-m2.jpg",
     202: "images/macbook-air-m3.jpg",
+    203: "images/dell-inspiron-15.jpg",
+    204: "images/hp-pavilion-14.jpg",
+    205: "images/ideapad-slim-5.jpg",
 
-    203: "images/macbook-air-m4.jpg",
-    204: "images/macbook-pro-14.jpg",
-    205: "images/macbook-pro-16.jpg",
-    206: "images/macbook-pro-m4.jpg",
-
-
-    // =========================
-    // OTHER LAPTOPS
-    // =========================
-    207: "images/dell-inspiron-15.jpg",
-    208: "images/hp-pavilion-14.jpg",
-    209: "images/ideapad-slim-5.jpg",
-
-    210: "images/dell-xps-13.jpg",
-    211: "images/hp-pavilion-15.jpg",
-    212: "images/lenovo-legion-5.jpg",
-    213: "images/asus-vivobook-15.jpg",
-
-
-    // =========================
-    // HEADPHONES / EARBUDS
-    // =========================
     301: "images/airpods-pro.jpg",
     302: "images/sony-xm5.jpg",
     303: "images/jbl-770nc.jpg",
     304: "images/bose-qc45.jpg",
 
-    305: "images/airpods-4.jpg",
-    306: "images/airpods-max.jpg",
-    307: "images/sony-wf-1000xm5.jpg",
-    308: "images/sony-xm4.jpg",
-    309: "images/jbl-live-770nc.jpg",
-
-
-    // =========================
-    // SMARTWATCHES
-    // =========================
-    310: "images/apple-watch-9.jpg",
-    311: "images/apple-watch-10.jpg",
-    312: "images/galaxy-watch-6.jpg",
-    313: "images/galaxy-watch-7.jpg",
-
-
-    // =========================
-    // NOTHING
-    // =========================
-    401: "images/Nothing Phone (3a).jpg",
-    402: "images/nothing-phone-3a-pro.jpg"
+    305: "images/apple-watch-9.jpg"
 };
 // =========================================
 // GET HTML ELEMENTS
@@ -283,35 +207,35 @@ const resultsTitle = document.getElementById("resultsTitle");
 // =========================================
 // SEARCH FUNCTION
 // =========================================
-async function searchProducts(query) {
-
-    const searchTerm = query.trim();
-
+function searchProducts(query) {
+    const searchTerm = query.trim().toLowerCase();
     if (searchTerm === "") {
         return [];
     }
-
-    try {
-
-        const response = await fetch(
-            `http://127.0.0.1:5000/api/search?q=${encodeURIComponent(searchTerm)}`
+    return products.filter(product => {
+        const productName =
+            product.name.toLowerCase();
+        const category =
+            product.category.toLowerCase();
+        // 1. Exact product-name match
+        if (productName === searchTerm) {
+            return true;
+        }
+        // 2. Prefix match for individual words
+        const words = productName.split(" ");
+        const nameMatch = words.some(word =>
+            word.startsWith(searchTerm)
         );
-
-        const data = await response.json();
-
-        return data.results;
-
-    } catch (error) {
-
-        console.error("Backend search error:", error);
-
-        return [];
-    }
+        // 3. Category prefix match
+        const categoryMatch =
+            category.startsWith(searchTerm);
+        return nameMatch || categoryMatch;
+    });
 }
 // =========================================
 // AUTOCOMPLETE
 // =========================================
-async function showSuggestions(query) {
+function showSuggestions(query) {
     const searchTerm = query.trim().toLowerCase();
     // Hide dropdown if nothing is typed
     if (searchTerm === "") {
@@ -319,23 +243,17 @@ async function showSuggestions(query) {
         suggestionsBox.innerHTML = "";
         return;
     }
-    // Get matching products from Flask backend
-let suggestions = [];
-
-try {
-
-    const response = await fetch(
-        `http://127.0.0.1:5000/api/suggestions?q=${encodeURIComponent(searchTerm)}`
-    );
-
-    suggestions = await response.json();
-
-} catch (error) {
-
-    console.error("Backend suggestion error:", error);
-
-    suggestions = [];
-}
+    // Find matching products
+    const matches = products.filter(product => {
+        const words = product.name
+            .toLowerCase()
+            .split(" ");
+        return words.some(word =>
+            word.startsWith(searchTerm)
+        );
+    });
+    // Show only first 5 suggestions
+    const suggestions = matches.slice(0, 5);
     // No suggestions
     if (suggestions.length === 0) {
         suggestionsBox.style.display = "none";
@@ -460,7 +378,7 @@ function displayProducts(results) {
 // SEARCH INPUT EVENT
 // =========================================
 
-searchInput.addEventListener("input", async () => {
+searchInput.addEventListener("input", () => {
     const query = searchInput.value;
     //show autocomplete suggestions
     showSuggestions(query);
@@ -472,7 +390,8 @@ searchInput.addEventListener("input", async () => {
     }
     // Search products
     // Search products
-const rankedResults = await searchProducts(query);
+const results = searchProducts(query);
+const rankedResults = rankProducts(results);
 
 resultsTitle.textContent = query
     ? `Results for "${query}"`

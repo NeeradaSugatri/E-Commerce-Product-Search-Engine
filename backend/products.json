@@ -1,0 +1,282 @@
+[
+  {
+    "id": 101,
+    "name": "iPhone 15",
+    "category": "Smartphones",
+    "price": 69999,
+    "rating": 4.8,
+    "popularity": 95
+  },
+  {
+    "id": 102,
+    "name": "iPhone 15 Plus",
+    "category": "Smartphones",
+    "price": 79999,
+    "rating": 4.7,
+    "popularity": 91
+  },
+  {
+    "id": 103,
+    "name": "iPhone 15 Pro",
+    "category": "Smartphones",
+    "price": 134999,
+    "rating": 4.9,
+    "popularity": 98
+  },
+  {
+    "id": 104,
+    "name": "iPhone 15 Pro Max",
+    "category": "Smartphones",
+    "price": 154999,
+    "rating": 4.9,
+    "popularity": 99
+  },
+  {
+    "id": 112,
+    "name": "iPhone 14 Plus",
+    "category": "Smartphones",
+    "price": 69999,
+    "rating": 4.6,
+    "popularity": 84
+  },
+  {
+    "id": 114,
+    "name": "iPhone 13",
+    "category": "Smartphones",
+    "price": 49999,
+    "rating": 4.6,
+    "popularity": 82
+  },
+  {
+    "id": 115,
+    "name": "iPhone 13 Pro",
+    "category": "Smartphones",
+    "price": 99999,
+    "rating": 4.7,
+    "popularity": 86
+  },
+  {
+    "id": 116,
+    "name": "iPhone 13 Pro Max",
+    "category": "Smartphones",
+    "price": 109999,
+    "rating": 4.8,
+    "popularity": 89
+  },
+  {
+    "id": 117,
+    "name": "iPhone 16",
+    "category": "Smartphones",
+    "price": 79999,
+    "rating": 4.8,
+    "popularity": 94
+  },
+  {
+    "id": 118,
+    "name": "iPhone 16 Plus",
+    "category": "Smartphones",
+    "price": 89999,
+    "rating": 4.7,
+    "popularity": 90
+  },
+  {
+    "id": 119,
+    "name": "iPhone 16 Pro",
+    "category": "Smartphones",
+    "price": 119999,
+    "rating": 4.9,
+    "popularity": 97
+  },
+  {
+    "id": 120,
+    "name": "iPhone 16 Pro Max",
+    "category": "Smartphones",
+    "price": 144999,
+    "rating": 4.9,
+    "popularity": 99
+  },
+
+  {
+    "id": 105,
+    "name": "Samsung Galaxy S24",
+    "category": "Smartphones",
+    "price": 74999,
+    "rating": 4.7,
+    "popularity": 94
+  },
+  {
+    "id": 106,
+    "name": "Samsung Galaxy S24 Ultra",
+    "category": "Smartphones",
+    "price": 129999,
+    "rating": 4.9,
+    "popularity": 97
+  },
+
+  {
+    "id": 107,
+    "name": "OnePlus 12",
+    "category": "Smartphones",
+    "price": 64999,
+    "rating": 4.6,
+    "popularity": 89
+  },
+  {
+    "id": 108,
+    "name": "OnePlus Nord CE 4",
+    "category": "Smartphones",
+    "price": 24999,
+    "rating": 4.4,
+    "popularity": 82
+  },
+
+  {
+    "id": 109,
+    "name": "Google Pixel 8",
+    "category": "Smartphones",
+    "price": 75999,
+    "rating": 4.6,
+    "popularity": 86
+  },
+  {
+    "id": 110,
+    "name": "Google Pixel 8 Pro",
+    "category": "Smartphones",
+    "price": 106999,
+    "rating": 4.8,
+    "popularity": 90
+  },
+
+  {
+    "id": 201,
+    "name": "MacBook Air M2",
+    "category": "Laptops",
+    "price": 89999,
+    "rating": 4.8,
+    "popularity": 94
+  },
+  {
+    "id": 202,
+    "name": "MacBook Air M3",
+    "category": "Laptops",
+    "price": 109999,
+    "rating": 4.9,
+    "popularity": 96
+  },
+  {
+    "id": 203,
+    "name": "MacBook Air M4",
+    "category": "Laptops",
+    "price": 99999,
+    "rating": 4.9,
+    "popularity": 97
+  },
+  {
+    "id": 204,
+    "name": "MacBook Pro 14",
+    "category": "Laptops",
+    "price": 169999,
+    "rating": 4.8,
+    "popularity": 93
+  },
+  {
+    "id": 205,
+    "name": "MacBook Pro 16",
+    "category": "Laptops",
+    "price": 249999,
+    "rating": 4.8,
+    "popularity": 91
+  },
+  {
+    "id": 206,
+    "name": "MacBook Pro M4",
+    "category": "Laptops",
+    "price": 169999,
+    "rating": 4.9,
+    "popularity": 96
+  },
+
+  {
+    "id": 207,
+    "name": "Dell Inspiron 15",
+    "category": "Laptops",
+    "price": 58999,
+    "rating": 4.4,
+    "popularity": 80
+  },
+  {
+    "id": 208,
+    "name": "HP Pavilion 14",
+    "category": "Laptops",
+    "price": 62999,
+    "rating": 4.5,
+    "popularity": 84
+  },
+  {
+    "id": 209,
+    "name": "Lenovo IdeaPad Slim 5",
+    "category": "Laptops",
+    "price": 65999,
+    "rating": 4.6,
+    "popularity": 87
+  },
+
+  {
+    "id": 301,
+    "name": "AirPods Pro",
+    "category": "Headphones",
+    "price": 24999,
+    "rating": 4.7,
+    "popularity": 93
+  },
+  {
+    "id": 302,
+    "name": "Sony WH-1000XM5",
+    "category": "Headphones",
+    "price": 29999,
+    "rating": 4.8,
+    "popularity": 92
+  },
+  {
+    "id": 303,
+    "name": "JBL Tune 770NC",
+    "category": "Headphones",
+    "price": 6999,
+    "rating": 4.5,
+    "popularity": 85
+  },
+  {
+    "id": 304,
+    "name": "Bose QuietComfort 45",
+    "category": "Headphones",
+    "price": 27999,
+    "rating": 4.7,
+    "popularity": 88
+  },
+
+  {
+    "id": 310,
+    "name": "Apple Watch Series 9",
+    "category": "Smartwatches",
+    "price": 41999,
+    "rating": 4.7,
+    "popularity": 90
+  },
+
+  {
+    "id": 401,
+    "name": "Nothing Phone (3a)",
+    "category": "Smartphones",
+    "price": 24999,
+    "rating": 4.5,
+    "popularity": 88
+  },
+  {
+    "id": 402,
+    "name": "Nothing Phone (3a) Pro",
+    "category": "Smartphones",
+    "price": 29999,
+    "rating": 4.6,
+    "popularity": 90
+  }
+]
